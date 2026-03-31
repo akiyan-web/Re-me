@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re:Me コンプリートプラン｜あなたの人生が、変わる日</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FDFAF6;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --deep: #2C2418;
+    --mid: #5C4A32;
+    --text: #3D3028;
+    --accent: #8B6B4A;
+    --blush: #E8D5C4;
+    --sage: #A8B5A0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--deep);
+    overflow: hidden;
+    padding: 80px 24px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 20%, rgba(201,169,110,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 80% 80%, rgba(139,107,74,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 60%, rgba(201,169,110,0.08) 0%, transparent 50%);
+  }
+
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(201,169,110,1) 60px, rgba(201,169,110,1) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(201,169,110,1) 60px, rgba(201,169,110,1) 61px);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(13px, 2vw, 15px);
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 200;
+    font-size: clamp(36px, 7vw, 72px);
+    line-height: 1.4;
+    color: var(--cream);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--gold);
+    font-size: 1.15em;
+  }
+
+  .hero-sub {
+    font-weight: 300;
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: rgba(247,243,238,0.65);
+    line-height: 2;
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-price-badge {
+    display: inline-block;
+    border: 1px solid rgba(201,169,110,0.4);
+    padding: 20px 48px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards;
+  }
+
+  .hero-price-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .hero-price-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 8vw, 64px);
+    color: var(--cream);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-price-num span {
+    font-size: 0.45em;
+    vertical-align: super;
+    color: var(--gold);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s ease 2s forwards;
+  }
+
+  .scroll-hint-text {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(201,169,110,0.5);
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section {
+    padding: clamp(60px, 10vw, 120px) clamp(20px, 6vw, 80px);
+  }
+
+  .section-inner {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-light);
+    max-width: 60px;
+  }
+
+  .section-heading {
+    font-weight: 300;
+    font-size: clamp(26px, 5vw, 44px);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .section-body {
+    font-weight: 300;
+    font-size: clamp(15px, 2vw, 17px);
+    line-height: 2.2;
+    color: var(--mid);
+  }
+
+  /* ===== STORY ===== */
+  .story {
+    background: var(--deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(201,169,110,0.07) 0%, transparent 70%);
+  }
+
+  .story .section-inner { position: relative; }
+  .story .section-label { color: var(--gold-light); }
+  .story .section-label::after { background: rgba(201,169,110,0.3); }
+
+  .story-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .story-text p {
+    font-size: clamp(17px, 3vw, 22px);
+    font-weight: 200;
+    line-height: 2.2;
+    color: rgba(247,243,238,0.8);
+  }
+
+  .story-text em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .story-closing {
+    font-size: clamp(17px, 3vw, 22px) !important;
+    color: var(--cream) !important;
+    font-weight: 300 !important;
+    padding-top: 16px;
+    border-top: 1px solid rgba(201,169,110,0.2);
+  }
+
+  /* ===== EMPATHY ===== */
+  .empathy {
+    background: var(--warm-white);
+  }
+
+  .empathy-list {
+    list-style: none;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .empathy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .empathy-item:first-child {
+    border-top: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .empathy-check {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .empathy-text {
+    font-size: clamp(15px, 2vw, 17px);
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text);
+  }
+
+  /* ===== TRANSFORM BRIDGE ===== */
+  .bridge {
+    background: var(--deep);
+    text-align: center;
+    padding: clamp(60px, 10vw, 100px) clamp(20px, 6vw, 80px);
+  }
+
+  .bridge-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .bridge-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 5vw, 42px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .bridge-quote::before {
+    content: '"';
+    font-size: 6em;
+    color: rgba(201,169,110,0.12);
+    position: absolute;
+    top: -0.3em;
+    left: -0.1em;
+    line-height: 1;
+  }
+
+  .bridge-quote em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* ===== COACHING ===== */
+  .coaching {
+    background: var(--cream);
+  }
+
+  .coaching-cards {
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .coaching-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 36px 28px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .coaching-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(44,36,24,0.08);
+  }
+
+  .coaching-card-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 20px;
+    color: var(--gold);
+  }
+
+  .coaching-card-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .coaching-card-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2.1;
+    color: var(--mid);
+  }
+
+  /* ===== CONTENTS ===== */
+  .contents {
+    background: var(--cream);
+  }
+
+  .contents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 52px;
+    background: rgba(201,169,110,0.2);
+  }
+
+  .content-card {
+    background: var(--warm-white);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .content-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .content-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .content-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: rgba(201,169,110,0.2);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .content-title {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--deep);
+  }
+
+  .content-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--mid);
+  }
+
+  /* ===== OUTCOME ===== */
+  .outcome {
+    background: var(--blush);
+  }
+
+  .outcome-items {
+    margin-top: 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .outcome-item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .outcome-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .outcome-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+  }
+
+  .outcome-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .outcome-title {
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+
+  .outcome-body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 2.1;
+    color: var(--mid);
+  }
+
+  /* ===== PAST HEAL ===== */
+  .heal {
+    background: var(--deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .heal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 80% 50%, rgba(201,169,110,0.08) 0%, transparent 70%);
+  }
+
+  .heal .section-inner { position: relative; }
+  .heal .section-label { color: var(--gold-light); }
+  .heal .section-label::after { background: rgba(201,169,110,0.3); }
+  .heal .section-heading { color: var(--cream); }
+  .heal .section-body { color: rgba(247,243,238,0.65); }
+
+  .heal-flow {
+    margin-top: 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .heal-flow::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201,169,110,0.1));
+  }
+
+  .heal-step {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    padding: 32px 0;
+  }
+
+  .heal-dot {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold);
+    background: var(--deep);
+    position: relative;
+    z-index: 1;
+  }
+
+  .heal-content { padding-top: 8px; }
+
+  .heal-step-title {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .heal-step-body {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2.1;
+    color: rgba(247,243,238,0.6);
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background: var(--warm-white);
+    text-align: center;
+  }
+
+  .cta-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--deep);
+    padding: clamp(48px, 8vw, 80px) clamp(32px, 6vw, 72px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(201,169,110,0.25);
+    pointer-events: none;
+  }
+
+  .cta-box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 70%);
+  }
+
+  .cta-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .cta-heading {
+    font-weight: 200;
+    font-size: clamp(22px, 4vw, 34px);
+    color: var(--cream);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-price {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-price-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: rgba(201,169,110,0.6);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .cta-price-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 10vw, 80px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .cta-price-num small {
+    font-size: 0.4em;
+    color: var(--gold);
+    vertical-align: super;
+  }
+
+  .cta-price-tax {
+    font-size: 12px;
+    color: rgba(247,243,238,0.4);
+    margin-top: 8px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold) 0%, #B8935A 100%);
+    color: var(--deep);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    padding: 20px 56px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(201,169,110,0.3);
+  }
+
+  .cta-support {
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--gold-light);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: rgba(247,243,238,0.35);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== FAQ ===== */
+  .faq {
+    background: var(--cream);
+  }
+
+  .faq-list {
+    margin-top: 52px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(201,169,110,0.25);
+  }
+
+  .faq-q {
+    padding: 28px 0;
+    display: flex;
+    gap: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--deep);
+    list-style: none;
+    align-items: flex-start;
+  }
+
+  .faq-q::before {
+    content: 'Q.';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  .faq-a {
+    padding: 0 0 28px 36px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2.1;
+    color: var(--mid);
+    display: none;
+  }
+
+  .faq-item.open .faq-a {
+    display: block;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--deep);
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(247,243,238,0.25);
+    letter-spacing: 0.2em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(1); opacity: 0.6; }
+    50% { transform: scaleY(0.7); opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .outcome-item {
+      grid-template-columns: 1fr;
+    }
+    .outcome-icon { width: 48px; height: 48px; }
+    .heal-flow::before { left: 18px; }
+    .heal-dot { width: 36px; height: 36px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Re:Me Complete Plan</p>
+    <h1 class="hero-title">
+      あなたの人生が、<br>
+      <em>変わる日</em>がある。
+    </h1>
+    <p class="hero-sub">
+      自分を知り、家族を知り、過去を癒す。<br>
+      Re:Me コンプリートプランで、本来の自分に戻り、今日から「自分らしく」生きていく。
+    </p>
+    <div class="hero-price-badge">
+      <span class="hero-price-label">Re:Me Complete Plan</span>
+      <div class="hero-price-num"><span>¥</span>66,000</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span class="scroll-hint-text">SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="section-inner">
+    <p class="section-label reveal">My Story</p>
+    <div class="story-text reveal">
+      <p>大切な人の力になりたい。<br>もっと自分らしく生きたい。</p>
+      <p>でも自分の強みや、<br>私らしさが、わからなかった。</p>
+      <p>一人で考えれば考えるほど<br>どつぼにハマって、動けなくなっていた。</p>
+      <p>そんな時に自分を知るきっかけをくれたのが、<br>個性診断だった。</p>
+      <p>過去の孤独な体験さえ、<br><em>「だからか。。」</em>と<br>呪縛から解き放たれる感覚を得た。</p>
+      <p class="story-closing">だから、同じように生きづらさを感じるあなたに伝えたい。<br><br>才能のない人なんて、一人もいない。<br>あなたは、あなたらしく生きていい。</p>
+    </div>
+  </div>
+</section>
+
+<!-- EMPATHY -->
+<section class="empathy">
+  <div class="section-inner">
+    <p class="section-label reveal">Your Story</p>
+    <h2 class="section-heading reveal">
+      こんなこと、<br>感じたことはありませんか？
+    </h2>
+    <ul class="empathy-list">
+      <li class="empathy-item reveal">
+        <span class="empathy-check">◇</span>
+        <p class="empathy-text">なぜあの時、親にあんなことを言われたんだろう。ずっと胸の奥に引っかかっている。</p>
+      </li>
+      <li class="empathy-item reveal">
+        <span class="empathy-check">◇</span>
+        <p class="empathy-text">兄弟と自分は、こんなに違う。どうしてあんなにすれ違うのか、わからなかった。</p>
+      </li>
+      <li class="empathy-item reveal">
+        <span class="empathy-check">◇</span>
+        <p class="empathy-text">自分のことは、自分が一番わかっていない。そんな感覚がずっとある。</p>
+      </li>
+      <li class="empathy-item reveal">
+        <span class="empathy-check">◇</span>
+        <p class="empathy-text">過去を引きずって、前に進めない。もっと軽やかに生きたいのに。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- BRIDGE -->
+<div class="bridge">
+  <div class="bridge-inner reveal">
+    <p class="bridge-quote">
+      それは、あなたが弱いのではない。<br>
+      ただ、<em>「知らなかった」</em>だけ。
+    </p>
+  </div>
+</div>
+
+<!-- COACHING -->
+<section class="coaching">
+  <div class="section-inner">
+    <p class="section-label reveal">Coaching Dialogue</p>
+    <h2 class="section-heading reveal">
+      診断結果を渡して終わり、<br>ではありません。
+    </h2>
+    <p class="section-body reveal">
+      このプランでは、すべてのセッションを通じてコーチングの対話を行います。<br>
+      診断で見えてきたことを、問いかけと対話で「自分の言葉」に変えていく。<br>
+      頭でわかるだけでなく、心の深いところまで届く気づきを、一緒につくっていきます。
+    </p>
+    <div class="coaching-cards reveal">
+      <div class="coaching-card">
+        <div class="coaching-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <p class="coaching-card-text">診断結果を聞きながら<br>「あ、これ私のことだ」と<br>言葉にできる空間</p>
+      </div>
+      <div class="coaching-card">
+        <div class="coaching-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <p class="coaching-card-text">過去の記憶が浮かんだとき<br>そのまま話せる<br>安心できる対話の場</p>
+      </div>
+      <div class="coaching-card">
+        <div class="coaching-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="coaching-card-text">「これからどう生きたいか」を<br>自分の口から言葉にして<br>前に進んでいける</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENTS -->
+<section class="contents">
+  <div class="section-inner">
+    <p class="section-label reveal">What's Included</p>
+    <h2 class="section-heading reveal">
+      Re:Me コンプリートプランの<br>すべての内容
+    </h2>
+    <div class="contents-grid">
+      <div class="content-card reveal">
+        <div class="content-number">01</div>
+        <div class="content-title">自分診断セッション</div>
+        <div class="content-desc">あなた固有の個性・才能・思考パターンを丁寧に読み解きます。対話を通じて「なるほど、だから私はこうだったのか」という気づきを一緒に深めていきます。</div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-number">02</div>
+        <div class="content-title">家族診断セッション</div>
+        <div class="content-desc">パートナー・子どもの個性を診断しながら、対話の中で「あの場面」を一緒に振り返ります。相手への理解が深まり、関係の質がガラリと変わります。</div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-number">03</div>
+        <div class="content-title">親・兄弟の診断</div>
+        <div class="content-desc">原点となる家族関係を解き明かします。コーチングの問いかけとともに、「あの時のあの出来事」の意味が、すっと腑に落ちる瞬間があります。</div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-number">04</div>
+        <div class="content-title">バイオリズムセッション</div>
+        <div class="content-desc">今の自分の波を知る。対話しながら「これからどう生きたいか」を言葉にしていきます。人生のリズムを味方につけて、前に進んでいきます。</div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-number">05</div>
+        <div class="content-title">本能を知り、未来を選ぶ</div>
+        <div class="content-desc">脳は変化を嫌い、現状維持を求めます。「なぜ変われないのか」がわかるだけで、自分を責めなくなります。そして言葉には現実を変える力がある。最後のカリキュラムで、変化を起こすための土台を一緒に整えます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="outcome">
+  <div class="section-inner">
+    <p class="section-label reveal">What You'll Gain</p>
+    <h2 class="section-heading reveal">
+      受けることで、<br>あなたに起きること
+    </h2>
+    <div class="outcome-items">
+      <div class="outcome-item reveal">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div>
+          <p class="outcome-label">Self Understanding</p>
+          <h3 class="outcome-title">自己理解・自己受容</h3>
+          <p class="outcome-body">「なぜ私はこうなんだろう」という長年の疑問に、答えが見えてきます。自分を責めるのをやめ、ありのままの自分を受け入れられるようになっていきます。</p>
+        </div>
+      </div>
+      <div class="outcome-item reveal">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <p class="outcome-label">Past Healing</p>
+          <h3 class="outcome-title">過去の浄化と癒し</h3>
+          <p class="outcome-body">「だから、あの時あんな気持ちになったんだ」。親や兄弟との違いを知ることで、過去の出来事の見え方が変わります。怒りや悲しみが、静かに溶けていきます。</p>
+        </div>
+      </div>
+      <div class="outcome-item reveal">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <p class="outcome-label">New Life</p>
+          <h3 class="outcome-title">今を、軽やかに生きる</h3>
+          <p class="outcome-body">過去を引きずらず、今の自分を生きやすくなる。人間関係も、仕事も、自分との付き合い方も。すべてが少しずつ、でも確実に変わっていきます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEAL FLOW -->
+<section class="heal">
+  <div class="section-inner">
+    <p class="section-label reveal">The Journey</p>
+    <h2 class="section-heading reveal">
+      過去を知ることが、<br>未来を照らす
+    </h2>
+    <p class="section-body reveal">
+      このプランは、単なる「診断」ではありません。<br>
+      自分を知り、家族を知り、過去と和解する。<br>
+      その一連の旅が、あなたの今を変えていきます。
+    </p>
+    <div class="heal-flow">
+      <div class="heal-step reveal">
+        <div class="heal-dot">1</div>
+        <div class="heal-content">
+          <h3 class="heal-step-title">自分の個性を知る</h3>
+          <p class="heal-step-body">なぜ自分はこう考えるのか、なぜこう感じるのか。その「理由」が初めてわかる瞬間。</p>
+        </div>
+      </div>
+      <div class="heal-step reveal">
+        <div class="heal-dot">2</div>
+        <div class="heal-content">
+          <h3 class="heal-step-title">家族の個性を知る</h3>
+          <p class="heal-step-body">親も、兄弟も、みんな違う個性を持っている。その違いを知るだけで、見える景色が変わる。</p>
+        </div>
+      </div>
+      <div class="heal-step reveal">
+        <div class="heal-dot">3</div>
+        <div class="heal-content">
+          <h3 class="heal-step-title">過去の自分を許す</h3>
+          <p class="heal-step-body">「あの時こうすればよかった」という後悔が、「そうするしかなかったんだ」という理解に変わる。</p>
+        </div>
+      </div>
+      <div class="heal-step reveal">
+        <div class="heal-dot">4</div>
+        <div class="heal-content">
+          <h3 class="heal-step-title">今を、自分らしく生きる</h3>
+          <p class="heal-step-body">バイオリズムも味方につけて、自分のペースで、自分の人生を歩んでいく。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <span class="cta-label">Re:Me Complete Plan</span>
+    <h2 class="cta-heading">
+      今日が、あなたの<br>人生が変わる日になる。
+    </h2>
+    <div class="cta-price">
+      <span class="cta-price-label">TOTAL PRICE</span>
+      <div class="cta-price-num"><small>¥</small>66,000</div>
+      <p class="cta-price-tax">（税込）</p>
+    </div>
+    <button class="cta-btn">お申し込み・お問い合わせ</button>
+    <p class="cta-support">✦ 変化を定着させるための習慣化サポートつき</p>
+    <p class="cta-note">※ お申し込み後、日程調整のご連絡をさしあげます</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner">
+    <p class="section-label reveal">FAQ</p>
+    <h2 class="section-heading reveal">よくある質問</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <p class="faq-q">診断はどんな方法で行いますか？</p>
+        <div class="faq-a">オンラインまたは対面にてセッションを行います。詳細はお申し込み後にご案内いたします。</div>
+      </div>
+      <div class="faq-item reveal">
+        <p class="faq-q">家族が一緒にいなくても診断できますか？</p>
+        <div class="faq-a">はい、可能です。家族の生年月日などの基本情報があれば、一緒にいなくても診断を行うことができます。</div>
+      </div>
+      <div class="faq-item reveal">
+        <p class="faq-q">セッションは何回に分けて受けられますか？</p>
+        <div class="faq-a">Re:Me コンプリートプランのすべての内容を複数回のセッションに分けて受けていただけます。お申し込み後にスケジュールをご相談ください。</div>
+      </div>
+      <div class="faq-item reveal">
+        <p class="faq-q">心理的につらい時期でも受けられますか？</p>
+        <div class="faq-a">はい、むしろそのような時期にこそお役に立てることが多いです。自分や家族を深く理解することで、気持ちが楽になる方も多くいらっしゃいます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Individuality Diagnosis</div>
+  <p class="footer-copy">© 2025 All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      item.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
